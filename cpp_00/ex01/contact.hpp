@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:45:14 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/07/08 11:26:39 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/07/08 11:46:12 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ class	Contact
 	std::string	get_phone_number() const;
 	std::string	get_secret() const;
 };
+
 #endif
