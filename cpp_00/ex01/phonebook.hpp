@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:45:21 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/08 16:30:42 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/08/10 19:20:22 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cstring>
 #include <string>
 #include <cctype>
+#include <cstdlib>
 #include "contact.hpp"
 
 class Phonebook
@@ -29,8 +30,8 @@ class Phonebook
 		bool	is_empty(const std::string &str) const;
 		bool	is_alnum(const std::string &str) const;
 		bool	is_validnum(const std::string &str) const;
-		std::string isValid(const std::string& prompt, bool numericOnly);
-		
+		std::string isValid(const std::string& prompt, bool num_only);
+		std::string	truncate10(const std::string& str) const;
 	public:
 		Phonebook();
 		~Phonebook();
