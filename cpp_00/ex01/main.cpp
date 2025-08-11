@@ -3,20 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/07 14:45:17 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/10 19:13:33 by eric             ###   ########.fr       */
+/*   Updated: 2025/08/11 14:01:02 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 
+/*
+** FONCTION PRINCIPALE - Point d'entree du programme
+** 
+** Cette fonction implemente la boucle Read-Eval-Print (REPL) :
+** 1. Lit une commande de l'utilisateur (READ)
+** 2. Evalue et execute la commande (EVAL) 
+** 3. Affiche le resultat et recommence (PRINT + LOOP)
+**
+** Commandes supportees :
+** - ADD    : Ajouter un nouveau contact
+** - SEARCH : Rechercher et afficher les contacts
+** - EXIT   : Quitter le programme proprement
+*/
 int main()
 {
 	Phonebook	book;
 	std::string	cmd;
-
 	while (true)
 	{
 		std::cout << "Commande (ADD, SEARCH, EXIT): \n";
