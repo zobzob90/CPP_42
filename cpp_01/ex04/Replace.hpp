@@ -1,27 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Replace.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 14:49:37 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 15:27:38 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef REPLACE_HPP
+#define REPLACE_HPP
 
-int main()
-{
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
-	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
-	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
-}
+#include <iomanip>
+#include <iostream>
+#include <fstream>
+#include <string>
+
+bool		is_valid(std::string filename, std::string s1, std::string s2);
+std::string replace_content(std::string line, std::string s1, std::string s2);
+
+#endif

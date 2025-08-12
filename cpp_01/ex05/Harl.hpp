@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 16:15:09 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 16:26:21 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-int main()
+#include <string>
+#include <iostream>
+
+class  Harl
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
-	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
-	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
-}
+	private:
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+
+	public:
+		Harl();
+		~Harl();
+		void	complain(std::string level);		
+};
+
+#endif

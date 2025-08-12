@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 11:33:28 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 12:55:45 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
 
-int main()
+HumanA::HumanA(const std::string& name, Weapon &weapon) : name(name), weapon(weapon){}
+HumanA::~HumanA(){}
+
+void HumanA::Attack()
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
-	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
-	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
+	std::cout << RED << BOLD << name << NC << " attacks with his " << CYAN << weapon.getType() << NC << " ⚔️" << std::endl;
 }

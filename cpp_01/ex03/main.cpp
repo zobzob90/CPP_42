@@ -5,23 +5,36 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 11:33:40 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 12:52:26 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
 	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
+		Weapon	club = Weapon("kitchen knife 🔪");
+		
+		HumanA bob("Bob", club);
+		bob.Attack();
+		club.setType("some other knife\n");
+		bob.Attack();
 	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
+	{
+		Weapon	baseball = Weapon("baseball bate");
+		
+		HumanB jay("Jay");
+		jay.setWeapon(baseball);
+		jay.attack();
+		baseball.setType("some other type of weapon");
+		jay.attack();
+	}
+	{
+		HumanB jay_brother("Jay's Brother Bill");
+		jay_brother.attack();
+	}
+	return (0);
 }

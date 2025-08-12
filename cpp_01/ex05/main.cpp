@@ -5,27 +5,34 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 16:33:16 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/11 16:51:12 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 16:15:12 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 16:56:15 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#include "Harl.hpp"
 
-int	main()
+int main(void)
 {
-	std::string str = "Hi this is brain.";
-	std::string* str_ptr = &str;
-	std::string& str_ref = str;
-
-	std::cout << "Memory address of the string variable " << &str << std::endl;
-	std::cout << "Memory address held by the str_ptr " << str_ptr << std::endl;
-	std::cout << "Memory address held by str_ref " << &str_ref << std::endl;
+	Harl	harl;
 	
+	std::cout << "🔍 Testing DEBUG:" << std::endl;
+	harl.complain("DEBUG");
 	std::cout << std::endl;
 
-	std::cout << "Value of the variable " << str << std::endl;
-	std::cout << "Value pointed to by str_ptr " << *str_ptr << std::endl;
-	std::cout << "Value pointed to by str_ref " << str_ref << std::endl;
+	std::cout << "📄 Testing INFO:" << std::endl;
+	harl.complain("INFO");
+	std::cout << std::endl;
+
+	std::cout << "⚠️ Testing WARNING" << std::endl;
+	harl.complain("WARNING");
+	std::cout << std::endl;
+
+	std::cout << "💥 Testing ERROR:" << std::endl;
+	harl.complain("ERROR");
+	std::cout << std::endl;
+	
+	std::cerr << "You're testing the wrong lvl you fool !" << std::endl;
+	harl.complain("lol");
+	return (0);
 }

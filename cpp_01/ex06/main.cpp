@@ -5,23 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 16:15:12 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 17:04:34 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Harl.hpp"
 
-int main()
+int main(int ac, char *av[])
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
-	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
-	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
+	Harl	harl;
+    if (ac != 2)
+    {
+        std::cerr << "Usage: " << av[0] << " <log_level>" << std::endl;
+        std::cerr << "Levels: DEBUG, INFO, WARNING, ERROR" << std::endl;
+        return 1;
+    }
+    harl.complain(av[1]);
+    return 0;
 }

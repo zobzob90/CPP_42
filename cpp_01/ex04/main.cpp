@@ -5,23 +5,28 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 13:01:38 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 15:53:48 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Replace.hpp"
 
-int main()
+int	main(int ac, char *av[])
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
+	if (ac != 4)
 	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
+		std::cerr << "USAGE : <filename> <s1> <s2> !" << std::endl;
+		return (1);
 	}
 	else
-		std::cout << "Can't create zombie Horde" << std::endl;
+	{
+		if (!is_valid(av[1], av[2], av[3]))
+		{
+			std::cerr << "Impossible to replace the string !" << std::endl;
+			return (1);
+		}
+		std::cout << "String is replace !" << std::endl;
+	}
+	return (0);
 }

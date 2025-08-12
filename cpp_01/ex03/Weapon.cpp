@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/11 15:56:42 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 16:11:58 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/08/12 11:33:43 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/08/12 12:00:27 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main()
+Weapon::Weapon(){}
+Weapon::~Weapon(){}
+
+Weapon::Weapon(const std::string& type) : type(type){}
+
+const std::string& Weapon::getType() const
 {
-	int	N = 5;
-	Zombie* Horde = zombieHorde(N, "The Horde");
-	if (Horde)
-	{
-		for (int i = 0; i < N; ++i)
-			Horde[i].announce();
-		delete[] Horde;
-	}
-	else
-		std::cout << "Can't create zombie Horde" << std::endl;
+	return (type); //retourne une reference
+}
+
+void	Weapon::setType(const std::string& type)
+{
+	this->type = type;	//on utilise this pour eviter une ambiguite
 }
