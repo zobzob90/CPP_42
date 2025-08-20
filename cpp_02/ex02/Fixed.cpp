@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:13:46 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/13 16:26:09 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/08/20 15:18:00 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,122 @@ int	Fixed::toInt(void) const
 	return (this->stock_num >> this->bits);
 }
 
+/*====== OPERATEUR ARITHMETIQUE OPERATION ======*/
+
+Fixed Fixed::operator+(const Fixed &rhs) const
+{
+	return (this->toFloat() + rhs.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed &rhs) const
+{
+	return (this->toFloat() - rhs.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed &rhs) const
+{
+	return (this->toFloat() * rhs.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed &rhs) const
+{
+	return (this->toFloat() / rhs.toFloat());
+}
+
+/*====== OPERATEUR ARITHMETIQUE INCREMENATION ======*/
+
+Fixed	&Fixed::operator++() // pre_inc
+{
+	this->stock_num++;
+	return (*this);	
+}
+
+Fixed	Fixed::operator++(int) // incrementente
+{
+	Fixed	temp(*this);
+	operator++();
+	return (temp);
+}
+
+Fixed &Fixed::operator--() // pre_dec
+{
+	this->stock_num--;
+	return (*this);
+}
+
+Fixed	Fixed::operator--(int) // decremente
+{
+	Fixed	temp(*this);
+	operator--();
+	return (*this);
+}
+
+/*====== OPERATEUR COMPARAISON ======*/
+bool	Fixed::operator==(const Fixed &rhs) const
+{
+	return (this->stock_num == rhs.getRawBits());
+}
+
+bool	Fixed::operator!=(const Fixed &rhs) const
+{
+	return (this->stock_num != rhs.getRawBits());
+}
+
+bool	Fixed::operator>=(const Fixed &rhs) const
+{
+	return (this->stock_num >= rhs.getRawBits());
+}
+
+bool	Fixed::operator<=(const Fixed &rhs) const
+{
+	return (this->stock_num <= rhs.getRawBits());
+}
+
+bool	Fixed::operator<(const Fixed &rhs) const
+{
+	return (this->stock_num < rhs.getRawBits());
+}
+
+bool	Fixed::operator>(const Fixed &rhs) const
+{
+	return (this->stock_num > rhs.getRawBits());
+}
+
+/*====== MIN_MAX ======*/
+
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+const	Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return (a);
+	else
+		return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+const	Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	else
+		return (b);
+}
+
+/*====== OPERATEUR DE SURCHARGE ======*/
 std::ostream &operator<<(std::ostream &out, const Fixed &value)
 {
     out << value.toFloat();

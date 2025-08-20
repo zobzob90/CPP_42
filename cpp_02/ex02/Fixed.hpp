@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 15:13:44 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/13 17:11:25 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/08/20 14:59:42 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,14 @@ class Fixed
 		float	toFloat(void) const;
 		int		toInt(void) const;
 
-		// Surcharge de l'operateur <<
-		friend std::ostream &operator<<(std::ostream &out, const Fixed &value);
+		//fonction min_max
+		static	Fixed &min(Fixed &a, Fixed &b);
+		static const Fixed &min(const Fixed &a, const Fixed &b);
+		static	Fixed &max(Fixed &a, Fixed &b);
+		static const Fixed &max(const Fixed &a, const Fixed &b);
 } ;
+
+// Surcharge de l'operateur << (fonction libre)
+std::ostream &operator<<(std::ostream &out, const Fixed &value);
 
 #endif
