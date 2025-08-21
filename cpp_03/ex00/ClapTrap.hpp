@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/20 15:23:53 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/20 16:09:36 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/08/21 13:18:45 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@
 #define RED "\033[31m"
 #define GREEN "\033[32m"
 #define YELLOW "\033[33m"
+#define ORANGE "\033[38;5;208m"
 #define BLUE "\033[34m"
 #define GREY "\033[90m"
 #define CYAN "\033[36m"
+#define GOLD "\033[33;1m"
+#define PINK "\033[35m"
 #define RESET "\033[0m"
 
 class	ClapTrap
