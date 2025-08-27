@@ -6,12 +6,12 @@
 #    By: eric <eric@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/27 10:00:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/08/27 09:41:46 by eric             ###   ########.fr        #
+#    Updated: 2025/08/27 11:09:20 by eric             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program name
-NAME		= claptrap
+NAME		= ClapTrap
 
 # Compiler and flags
 CXX			= c++
@@ -29,7 +29,8 @@ BOLD		= \033[1m
 
 # Source files
 SOURCES		= main.cpp \
-			  ClapTrap.cpp
+			  ClapTrap.cpp \
+			  ScavTrap.cpp
 
 # Object files
 OBJECTS		= $(SOURCES:.cpp=.o)
