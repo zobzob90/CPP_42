@@ -6,12 +6,12 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/27 10:00:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/09/01 13:01:17 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/09/01 13:01:36 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program name
-NAME		= ScavTrap
+NAME		= DiamondTrap
 
 # Compiler and flags
 CXX			= c++
@@ -30,7 +30,9 @@ BOLD		= \033[1m
 # Source files
 SOURCES		= main.cpp \
 			  ClapTrap.cpp \
-			  ScavTrap.cpp
+			  ScavTrap.cpp \
+			  FragTrap.cpp \
+			  DiamondTrap.cpp
 
 # Object files
 OBJECTS		= $(SOURCES:.cpp=.o)
@@ -57,8 +59,8 @@ clean:
 
 # Clean everything
 fclean: clean
-	@echo "$(RED)🗑️  Removing $(NAME)...$(RESET)"
-	@$(RM) $(NAME)
+	@echo "$(RED)🗑️  Removing $(NAME) and old executables...$(RESET)"
+	@$(RM) $(NAME) FlagTrap
 	@echo "$(GREEN)✅ Everything cleaned!$(RESET)"
 
 # Rebuild everything

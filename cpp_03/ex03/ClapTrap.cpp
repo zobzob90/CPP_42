@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/27 09:41:53 by eric              #+#    #+#             */
-/*   Updated: 2025/09/01 15:44:22 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/01 15:17:49 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 ClapTrap::ClapTrap ()
 {
 	std::cout << "🔨" << GREEN << " ClapTrap constructor called" << RESET << std::endl;
+	this->Name = "Default";
+	this->hitPoints = 10;
+	this->attackDamage = 5;
+	this->energyPoints = 10;
 }
 
 ClapTrap::ClapTrap(const std::string Name)
@@ -22,7 +26,7 @@ ClapTrap::ClapTrap(const std::string Name)
 	std::cout << "🤖" << RED << " ClapTrap is initialized" << RESET << std::endl;
 	this->Name = Name;
 	this->hitPoints = 10;
-	this->attackDamage = 0;
+	this->attackDamage = 5;
 	this->energyPoints = 10;
 }
 
@@ -106,7 +110,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 void	ClapTrap::show_info()
 {
 	std::cout << "📊" << BLUE << " [INFO] ClapTrap " << this->Name << RESET << std::endl;
-	std::cout << GREY << "  Hit Points: " << this->hitPoints << std::endl;
+	std::cout << WHITE << "  Hit Points: " << this->hitPoints << std::endl;
 	std::cout << "  Energy Points: " << this->energyPoints << std::endl;
 	std::cout << "  Attack Damage: " << this->attackDamage << RESET << std::endl;
 }
