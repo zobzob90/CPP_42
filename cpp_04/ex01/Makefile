@@ -6,7 +6,7 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 19:00:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/09/01 19:07:03 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/09/01 18:25:05 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ SOURCES		= main.cpp \
 			  Cat.cpp \
 			  Dog.cpp \
 			  WrongAnimal.cpp \
-			  WrongCat.cpp 
+			  WrongCat.cpp
 
 # Object files
 OBJDIR		= obj
