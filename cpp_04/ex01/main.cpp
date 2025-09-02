@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:58:22 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/01 18:48:58 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/02 15:31:43 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
 int	main(void)
 {
 	std::cout << "=== CORRECT POLYMORPHISM WITH ANIMAL ===" << std::endl;
-	const	Animal* meta = new Animal();
-	const	Animal* j = new Dog();
-	const	Animal* i = new Cat();
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
 
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
@@ -34,8 +34,8 @@ int	main(void)
 	delete i;
 
 	std::cout << "\n=== INCORRECT POLYMORPHISM WITH WRONGANIMAL ===" << std::endl;
-	const	WrongAnimal* wrongMeta = new WrongAnimal();
-	const	WrongAnimal* wrongCat = new WrongCat();
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
 
 	std::cout << wrongCat->getType() << " " << std::endl;
 	wrongCat->makeSound();  // Will call WrongAnimal::makeSound() - no polymorphism!

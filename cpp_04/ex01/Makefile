@@ -6,7 +6,7 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/01 19:00:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/09/01 18:25:05 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/09/02 15:34:52 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ WHITE	= \033[37m
 RESET	= \033[0m
 
 # Project settings
-NAME		= Polymorphism
+NAME		= Brain
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 RM			= rm -rf
@@ -31,6 +31,7 @@ SOURCES		= main.cpp \
 			  Animal.cpp \
 			  Cat.cpp \
 			  Dog.cpp \
+			  Brain.cpp \
 			  WrongAnimal.cpp \
 			  WrongCat.cpp
 
@@ -42,6 +43,7 @@ OBJECTS		= $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 HEADERS		= Animal.hpp \
 			  Cat.hpp \
 			  Dog.hpp \
+			  Brain.hpp \
 			  WrongAnimal.hpp \
 			  WrongCat.hpp
 
