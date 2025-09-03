@@ -6,9 +6,12 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:28:14 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/03 11:34:05 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:41:39 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "AMateria.hpp"
+#include "Character.hpp"
 
 int main()
 {
