@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:15:06 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/08/12 17:02:35 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/03 11:24:02 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,31 +39,28 @@ void	Harl::complain(std::string level)
 {
 	void	(Harl::*complaints[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int			i = 0;
-
-	while (i < 4)
+	
+	// Trouve l'index du niveau
+	for (int i = 0; i < 4; i++)
 	{
 		if (lvls[i] == level)
 		{
-			(this->*complaints[i])();
-			return ;
+			switch (i)
+			{
+				case 0:
+					(this->*complaints[0])();
+					return;
+				case 1:
+					(this->*complaints[1])();
+					return;
+				case 2:
+					(this->*complaints[2])();
+					return;
+				case 3:
+					(this->*complaints[3])();
+					return;
+			}
 		}
-		i++;
-	}
-	switch (i)
-	{
-		case 0:
-			(this->*complaints[0])();
-			break;
-		case 1:
-			(this->*complaints[1])();
-			break;
-		case 2:
-			(this->*complaints[2])();
-			break;
-		case 3:
-			(this->*complaints[3])();
-			break;
 	}
 	std::cerr << "Error: Invalid level" << std::endl;
 }
