@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 16:15:06 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/03 11:24:02 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/03 11:26:19 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	Harl::complain(std::string level)
 	void	(Harl::*complaints[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string	lvls[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	
-	// Trouve l'index du niveau
 	for (int i = 0; i < 4; i++)
 	{
 		if (lvls[i] == level)
