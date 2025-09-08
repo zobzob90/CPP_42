@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 13:13:43 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/03 17:33:39 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/08 13:47:57 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,18 @@
 //constructeur
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << "Cure Constructor Called" << std::endl;
+	// std::cout << "Cure Constructor Called" << std::endl;
 }
 
 Cure::Cure(const Cure& src) : AMateria(src)
 {
-	std::cout << "Cure Copy constructor Called" << std::endl;
+	// std::cout << "Cure Copy constructor Called" << std::endl;
 }
 
 //operateur
 Cure &Cure::operator=(const Cure& src)
 {
-	std::cout << "Cure operator called" << std::endl;
+	// std::cout << "Cure operator called" << std::endl;
 	if (this != &src)
 		AMateria::operator=(src);
 	return (*this);
@@ -35,7 +35,7 @@ Cure &Cure::operator=(const Cure& src)
 //destructeur
 Cure::~Cure()
 {
-	std::cout << "Cure Destructor Called" << std::endl;
+	// std::cout << "Cure Destructor Called" << std::endl;
 }
 
 AMateria* Cure::clone() const
