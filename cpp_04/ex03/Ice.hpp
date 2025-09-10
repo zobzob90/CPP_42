@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 11:38:16 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/03 14:51:06 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 10:44:04 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Ice : public AMateria
 		Ice &operator=(const Ice& src);
 		virtual ~Ice();
 
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		virtual AMateria* clone() const;        // Crée une nouvelle instance d'Ice
+		virtual void use(ICharacter& target);   // Lance un projectile de glace sur la cible
 } ;
 
 #endif

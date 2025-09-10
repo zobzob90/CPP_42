@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:00:00 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/08 13:39:04 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 10:43:51 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ class AMateria;
 class IMateriaSource
 {
 public:
-    virtual ~IMateriaSource() {}
-    virtual void learnMateria(AMateria*) = 0;
-    virtual AMateria* createMateria(std::string const & type) = 0;
+    virtual ~IMateriaSource() {}                                    // Destructeur virtuel pour polymorphisme
+    virtual void learnMateria(AMateria*) = 0;                      // Apprend un nouveau sort (stocke le template)
+    virtual AMateria* createMateria(std::string const & type) = 0;  // Crée une copie du sort demandé
 };
 
 #endif

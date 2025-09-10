@@ -1,4 +1,14 @@
-# **************************************************************************** #
+# ******************************************# Header files
+HEADERS		= AMateria.hpp \
+			  ICharacter.hpp \
+			  Character.hpp \
+			  IMateriaSource.hpp \
+			  MateriaSource.hpp \
+			  Ice.hpp \
+			  Cure.hpp \
+			  Fire.hpp \
+			  Prison.hpp \
+			  Salade.hpp************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
@@ -6,7 +16,7 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/08 15:00:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/09/08 15:02:24 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/09/10 10:21:18 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +44,7 @@ SOURCES		= main.cpp \
 			  Cure.cpp \
 			  Fire.cpp \
 			  Prison.cpp \
+			  Salade.cpp \
 			  Character.cpp \
 			  MateriaSource.cpp
 
@@ -49,6 +60,7 @@ HEADERS		= AMateria.hpp \
 			  MateriaSource.hpp \
 			  Ice.hpp \
 			  Fire.hpp \
+			  Salade.hpp \
 			  Prison.hpp \
 			  Color.hpp \
 			  Cure.hpp
@@ -102,6 +114,11 @@ obj/MateriaSource.o: MateriaSource.cpp $(HEADERS)
 	@mkdir -p obj
 	@echo "$(YELLOW)⚙️  Compiling MateriaSource.cpp...$(RESET)"
 	@$(CXX) $(CXXFLAGS) -c MateriaSource.cpp -o obj/MateriaSource.o
+
+obj/Salade.o: Salade.cpp $(HEADERS)
+	@mkdir -p obj
+	@echo "$(YELLOW)⚙️  Compiling Salade.cpp...$(RESET)"
+	@$(CXX) $(CXXFLAGS) -c Salade.cpp -o obj/Salade.o
 
 clean:
 	@echo "$(RED)🧹 Cleaning object files...$(RESET)"

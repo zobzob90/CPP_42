@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/03 13:13:40 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/03 15:24:27 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 10:44:04 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Cure : public AMateria
 		Cure &operator=(const Cure& src);
 		virtual ~Cure();
 
-		virtual AMateria* clone() const;
-		virtual void use(ICharacter& target);
+		virtual AMateria* clone() const;        // Crée une nouvelle instance de Cure
+		virtual void use(ICharacter& target);   // Soigne les blessures de la cible
 } ;
 
 #endif

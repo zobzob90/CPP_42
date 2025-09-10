@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:58:12 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/01 18:33:02 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 11:15:24 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Cat::~Cat()
 
 void	Cat::makeSound() const
 {
-	std::cout << WHITE << "Cat say " << RED << "Meow Meow" << WHITE << " Bitch" << RESET << std::endl;
+	std::cout << WHITE << "Cat say " << RED << "Meow Meow" << RESET << std::endl;
 }
 
 std::string Cat::getType() const

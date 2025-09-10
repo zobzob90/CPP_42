@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:28:14 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/08 15:25:04 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 10:27:56 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "Ice.hpp"
 #include "Fire.hpp"
 #include "Prison.hpp"
+#include "Salade.hpp"
 
 int main()
 {
@@ -27,6 +28,7 @@ int main()
 	src->learnMateria(new Cure());
 	src->learnMateria(new Fire());
 	src->learnMateria(new Prison());
+	src->learnMateria(new Salade());  // Ajout de Salade !
 	
 	AMateria* tmp;
 	AMateria* tmp2;
@@ -55,13 +57,16 @@ int main()
 	Booba->equip(tmp2);
 	tmp2 = src->createMateria("cure");
 	Booba->equip(tmp2);
+	tmp2 = src->createMateria("salade");
+	Booba->equip(tmp2);
 	std::cout << std::endl;
 	
 	std::cout << BLINK << GOLD << "		FIGHT !		" << RESET << std::endl;
 	Kaaris->use(0, *Booba);
-	Kaaris->use(1, *Booba);
+	Kaaris->use(1, *Kaaris);
 	Booba->use(0, *Kaaris);
-	Booba->use(1, *Kaaris);
+	Booba->use(1, *Booba);
+	Booba->use(2, *Kaaris);
 	std::cout << std::endl;
 	std::cout << "But what ?! Here's another contender : " << RED << Justice->getName() << RESET << " 👨‍⚖️ " << std::endl;
 	tmp3 = src->createMateria("prison");
