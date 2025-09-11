@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 15:58:22 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/10 11:14:21 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:38:28 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,20 @@ int	main(void)
 	std::cout << "After modifying original:" << std::endl;
 	std::cout << "Original dog idea: " << smartDog->getIdea(0) << std::endl;
 	std::cout << "Copied dog idea: " << dogCopy->getIdea(0) << std::endl;
+
+	std::cout << "\n=== TEST 4.5: SCOPE TEST (EVALUATION REQUIREMENT) ===" << std::endl;
+	Dog basic;
+	basic.setIdea(0, "Basic dog idea");
+	std::cout << "Basic dog idea before scope: " << basic.getIdea(0) << std::endl;
+	{
+		Dog tmp = basic;  // Copy constructor - MUST be deep copy
+		std::cout << "Tmp dog idea in scope: " << tmp.getIdea(0) << std::endl;
+		tmp.setIdea(0, "Modified in scope");
+		std::cout << "Tmp modified: " << tmp.getIdea(0) << std::endl;
+		std::cout << "Basic unchanged: " << basic.getIdea(0) << std::endl;
+	}  // tmp destructor called here - Brain must be deleted safely
+	std::cout << "Basic dog idea after scope: " << basic.getIdea(0) << std::endl;
+	std::cout << "✅ If no crash occurred, deep copy works correctly!" << std::endl;
 
 	std::cout << "\n=== TEST 5: ASSIGNMENT OPERATOR ===" << std::endl;
 	Dog* anotherDog = new Dog();

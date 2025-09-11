@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 16:28:14 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/10 10:27:56 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:28:49 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@
 int main()
 {
 	IMateriaSource* src = new MateriaSource();
+	IMateriaSource* prison_src = new MateriaSource();
+
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 	src->learnMateria(new Fire());
-	src->learnMateria(new Prison());
-	src->learnMateria(new Salade());  // Ajout de Salade !
+	prison_src->learnMateria(new Prison());
+	src->learnMateria(new Salade());
 	
 	AMateria* tmp;
 	AMateria* tmp2;
@@ -68,8 +70,9 @@ int main()
 	Booba->use(1, *Booba);
 	Booba->use(2, *Kaaris);
 	std::cout << std::endl;
+
 	std::cout << "But what ?! Here's another contender : " << RED << Justice->getName() << RESET << " 👨‍⚖️ " << std::endl;
-	tmp3 = src->createMateria("prison");
+	tmp3 = prison_src->createMateria("prison");
 	Justice->equip(tmp3);
 	Justice->use(0, *Booba);
 	Justice->use(0, *Kaaris);

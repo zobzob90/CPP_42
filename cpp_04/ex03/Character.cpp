@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/02 17:08:47 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/08 15:10:53 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/10 12:29:11 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,8 @@ void	Character::use(int idx, ICharacter &target)
 		std::cout << RED <<  _name << RESET << " 🔥 shoots a fire ball at " << target.getName() << std::endl;
 	else if (_inventory[idx]->getType() == "prison")
 		std::cout << RED << _name  << RESET << " 🧱 uses 18 months of suspended sentence on " << target.getName() << std::endl;
+	else if (_inventory[idx]->getType() == "salade")
+		std::cout << RED << _name  << RESET << "🫲 uses salade de phalange at " << target.getName() << std::endl;
 	else
 		_inventory[idx]->use(target); // Fallback to default materia message
 }

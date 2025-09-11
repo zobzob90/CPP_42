@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:58:33 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/09 15:44:21 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/11 11:39:03 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int main(void)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << "Test 4 failed : Exception not thrown" << e.what() << std::endl;	
+		std::cerr << "Test 4 failed :" << e.what() << std::endl;	
 	}
 	return (0);
 }
