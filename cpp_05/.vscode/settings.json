@@ -46,6 +46,10 @@
 		"stdexcept": "cpp",
 		"streambuf": "cpp",
 		"typeinfo": "cpp",
-		"bureaucrat.hpp": "c"
+		"bureaucrat.hpp": "c",
+		"sstream": "cpp",
+		"ctime": "cpp",
+		"fstream": "cpp",
+		"iomanip": "cpp"
 	}
 }
