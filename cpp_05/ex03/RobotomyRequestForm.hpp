@@ -1,37 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 16:56:03 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 13:59:08 by ertrigna         ###   ########.fr       */
+/*   Created: 2025/09/11 16:56:09 by ertrigna          #+#    #+#             */
+/*   Updated: 2025/09/11 21:34:59 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRESIDENTIALPARDONFORM_HPP
-#define PRESIDENTIALPARDONFORM_HPP
+#ifndef ROBOTOMYREQUESTFORM
+#define ROBOTOMYREQUESTFORM
 
 #include "AForm.hpp"
 #include <iostream>
-#include <iomanip>
-#include <string>
+#include <cstdlib>
+#include <ctime>
 
-class PresidentialPardonForm : public AForm
+class Robotomy : public AForm
 {
-	private: 
+	private :
 		std::string _target;
-	protected:
-		virtual void	executeAction() const;
+	protected :
+		virtual void executeAction() const;
 	public :
-		PresidentialPardonForm();
-		PresidentialPardonForm(const std::string& target);
-		PresidentialPardonForm(const PresidentialPardonForm& src);
-		PresidentialPardonForm& operator=(const PresidentialPardonForm& src);
-		virtual ~PresidentialPardonForm();
+		Robotomy();
+		Robotomy(const std::string& target);
+		Robotomy(const Robotomy& src);
+		Robotomy& operator=(const Robotomy& src);
+		virtual ~Robotomy();
 
 		const std::string& getTarget() const;
+		
 } ;
 
 #endif

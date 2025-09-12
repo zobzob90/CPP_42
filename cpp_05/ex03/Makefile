@@ -6,12 +6,12 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/09 14:30:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/09/12 13:38:02 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/09/12 17:48:09 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Program name
-NAME		= Form
+NAME		= Intern
 
 # Compiler and flags
 CXX			= c++
@@ -24,7 +24,8 @@ SOURCES		= main.cpp \
 				AForm.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp \
+				Intern.cpp
 
 OBJECTS		= $(SOURCES:.cpp=.o)
 
@@ -33,7 +34,8 @@ HEADERS		= Bureaucrat.hpp \
 				AForm.hpp \
 				PresidentialPardonForm.hpp \
 				RobotomyRequestForm.hpp \
-				ShrubberyCreationForm.hpp
+				ShrubberyCreationForm.hpp \
+				Intern.hpp
 
 # Colors for output
 GREEN		= \033[0;32m
