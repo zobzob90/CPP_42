@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Scalar.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 10:55:51 by eric              #+#    #+#             */
-/*   Updated: 2025/09/15 11:06:48 by eric             ###   ########.fr       */
+/*   Updated: 2025/09/16 15:34:28 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 #define SCALAR_HPP
 
 #include <iostream>
+#include <iomanip>
 #include <string>
+#include <sstream>
 #include <cmath>
+#include <climits>
 #include <limits>
 
 class Scalar
@@ -31,12 +34,12 @@ class Scalar
 		static bool isFloat(const std::string& input);
 		static bool isDouble(const std::string& input);
 
-		static bool convertChar(const std::string& input);
-		static bool convertInt(const std::string& input);
-		static bool convertFloat(const std::string& input);
-		static bool convertDouble(const std::string& input);
+		static void convertChar(const std::string& input);
+		static void convertInt(const std::string& input);
+		static void convertFloat(const std::string& input);
+		static void convertDouble(const std::string& input);
 	public:
-		static bool convert(const std::string& input);
-}
+		static void convert(const std::string& input);
+} ;
 
 #endif
