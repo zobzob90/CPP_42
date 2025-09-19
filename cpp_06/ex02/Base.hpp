@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:10:04 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/17 15:54:41 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/19 13:13:15 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <string>
 #include <iostream>
-#include <iomanip>
-#include <fstream>
+#include <ctime>
+#include <cstdlib>
 
 class Base
 {
 	public:
-		~Base();
+		virtual ~Base() {};
 } ;
 
 Base 	*generate(void);
