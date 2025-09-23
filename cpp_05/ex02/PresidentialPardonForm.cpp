@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:01 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 15:18:26 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:25:26 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ const std::string& PresidentialPardonForm::getTarget() const
 	return _target;
 }
 
+// Action spécifique du PresidentialPardonForm
+// Informe que le target a été gracié par Zaphod Beeblebrox
 void	PresidentialPardonForm::executeAction() const
 {
 	std::cout << _target << " has been pardoned by Zaphod Beeblerox." << std::endl; 

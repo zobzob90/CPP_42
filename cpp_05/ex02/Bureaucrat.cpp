@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:58:27 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 13:22:56 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:25:25 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	Bureaucrat::getGrade() const
 }
 
 /****INCR + DECR */
+// Améliore le grade (diminue la valeur numérique)
+// Grade 1 = le plus haut, donc on ne peut pas incrémenter depuis 1
 void Bureaucrat::incrementGrade()
 {
 	if (_grade <= HIGHEST_GRADE)
@@ -67,6 +69,8 @@ void Bureaucrat::incrementGrade()
 	--_grade;
 }
 
+// Dégrade le grade (augmente la valeur numérique)
+// Grade 150 = le plus bas, donc on ne peut pas décrémenter depuis 150
 void Bureaucrat::decrementGrade()
 {
 	if (_grade >= LOWEST_GRADE)
@@ -74,6 +78,8 @@ void Bureaucrat::decrementGrade()
 	++_grade;
 }
 
+// Méthode pour signer un formulaire
+// Utilise try/catch pour gérer les exceptions et afficher un message approprié
 void Bureaucrat::signForm(AForm& form)
 {
 	try
@@ -88,6 +94,8 @@ void Bureaucrat::signForm(AForm& form)
 	}
 }
 
+// Méthode pour exécuter un formulaire 
+// Appelle la méthode execute() du formulaire qui gère les vérifications
 void Bureaucrat::executeForm(AForm const& form)
 {
 	try
@@ -97,7 +105,7 @@ void Bureaucrat::executeForm(AForm const& form)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << _name << " could not execute " << form.getName() << "because " <<  e.what() << std::endl;
+		std::cerr << _name << " could not execute " << form.getName() << " because " <<  e.what() << std::endl;
 	}
 	
 }

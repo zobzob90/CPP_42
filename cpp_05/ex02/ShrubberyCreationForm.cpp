@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:12 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 15:19:13 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:25:26 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,18 @@ const	std::string& ShrubberyCreationForm::getTarget() const
 	return _target;
 }
 
+// Action spécifique du ShrubberyCreationForm
+// Crée un fichier <target>_shrubbery contenant des arbres ASCII
 void ShrubberyCreationForm::executeAction() const
 {
 	std::string filename = _target + "_shrubbery";
 	std::ofstream file(filename.c_str());
 	
+	// Vérification que le fichier s'ouvre correctement
 	if (!file.is_open())
 		throw std::runtime_error("Could'nt create file !");
 
+	// Écriture d'arbres ASCII dans le fichier
 	file << "	🌳\n";
     file << "      /|\\\n"; 
     file << "     / | \\\n";

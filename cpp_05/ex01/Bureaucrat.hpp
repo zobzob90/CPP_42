@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:58:30 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/11 15:56:04 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:10:21 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <stdexcept> // try and catch
 #include <iostream>
 
-class Form; // Forward declaration
+class Form; // Forward declaration pour eviter une dependance circulaire
 
 class Bureaucrat
 {

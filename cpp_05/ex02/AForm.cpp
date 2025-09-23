@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:55:39 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 13:10:25 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 10:25:24 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,9 @@ int	AForm::GetGradeToExecute() const
 }
 
 // verifie si le getGrade du Bureaucrat est plus grand que le grade a signer si il ne l'est pas retourne true au boleen isSigned de la class Form
+// Vérifie si le grade du Bureaucrat est suffisant pour signer
+// Si oui, signe le formulaire (_isSigned = true)
+// Si non, lance une exception GradeTooLowException
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() > _gradeToSigned)
@@ -78,12 +81,22 @@ void	AForm::beSigned(const Bureaucrat& bureaucrat)
 	_isSigned = true;
 }
 
+// Template Method Pattern : méthode publique qui orchestre l'exécution
+// 1. Vérifie que le formulaire est signé
+// 2. Vérifie que le grade du bureaucrat est suffisant pour l'exécution
+// 3. Délègue l'action spécifique à la classe dérivée via executeAction()
 void	AForm::execute(Bureaucrat const& executor) const
 {
+	// Étape 1 : Vérifier que le formulaire est signé
 	if (!_isSigned)
 		throw FormNotSignedException();
+	
+	// Étape 2 : Vérifier que le grade est suffisant pour l'exécution
 	if (executor.getGrade() > _gradeToExecute)
 		throw GradeTooLowException();
+	
+	// Étape 3 : Appeler l'action spécifique (méthode virtuelle pure)
+	// Cette méthode sera implémentée différemment dans chaque classe dérivée
 	executeAction();
 }
 
