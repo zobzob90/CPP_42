@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 15:58:33 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/23 10:03:59 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:31:54 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,7 @@ void testCopyConstructorAndAssignment()
                     "Copy constructor");
         
         // Test assignment operator
-        Bureaucrat assigned("TempName", 1);
+        Bureaucrat assigned("Original", 1);
         assigned = original;
         std::cout << "Assigned: " << assigned << std::endl;
         printResult(assigned.getName() == original.getName() && 

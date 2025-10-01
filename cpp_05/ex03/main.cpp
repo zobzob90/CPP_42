@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/11 16:56:17 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/12 18:05:52 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:50:34 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,11 +156,45 @@ void testInternBasic()
     }
 }
 
+void testInternUnknownForm()
+{
+    std::cout << "\n========== INTERN UNKNOWN FORM TESTS ==========" << std::endl;
+    
+    try {
+        Intern intern;
+        Bureaucrat boss("Boss", 1);
+        
+        std::cout << "\n--- Testing unknown form types ---" << std::endl;
+        
+        // Test avec des noms invalides
+        AForm* unknown1 = intern.makeForm("unknown form", "target");
+        AForm* unknown2 = intern.makeForm("merde", "target"); // Case sensitive
+        AForm* unknown3 = intern.makeForm("", "target"); // Empty string
+        AForm* unknown4 = intern.makeForm("garbage", "target");
+        
+        // Vérifier que les pointeurs sont NULL
+        std::cout << "unknown1 pointer: " << (unknown1 ? "NOT NULL (BAD!)" : "NULL (GOOD)") << std::endl;
+        std::cout << "unknown2 pointer: " << (unknown2 ? "NOT NULL (BAD!)" : "NULL (GOOD)") << std::endl;
+        std::cout << "unknown3 pointer: " << (unknown3 ? "NOT NULL (BAD!)" : "NULL (GOOD)") << std::endl;
+        std::cout << "unknown4 pointer: " << (unknown4 ? "NOT NULL (BAD!)" : "NULL (GOOD)") << std::endl;
+        
+        // ✅ Sécurité : Delete seulement si pas NULL
+        if (unknown1) { boss.executeForm(*unknown1); delete unknown1; }
+        if (unknown2) { boss.executeForm(*unknown2); delete unknown2; }
+        if (unknown3) { boss.executeForm(*unknown3); delete unknown3; }
+        if (unknown4) { boss.executeForm(*unknown4); delete unknown4; }
+        
+    } catch (std::exception& e) {
+        std::cerr << "Error: " << e.what() << std::endl;
+    }
+}
+
 int	main(void)
 {
 
 	// TestBasic();
 	// testGradeRestriction();
 	testInternBasic();
+	testInternUnknownForm();
 	return (0);
 }
