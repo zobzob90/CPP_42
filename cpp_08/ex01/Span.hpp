@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 15:52:55 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/01 17:44:03 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/02 13:50:31 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -37,6 +38,11 @@ class Span
 			return *this;
 		}
 		~Span() {}
+
+		const std::vector<int>& getNumbers() const
+		{
+			return (_numbers);
+		}
 		
 		//ajoute un seul nombre
 		void addNumber(int n)
@@ -50,7 +56,7 @@ class Span
 		template<typename inputIterator>
 		void addNumber(inputIterator begin, inputIterator end)
 		{
-			if (_numbers.size() + std::distance(begin -end) > _N)
+			if (_numbers.size() + std::distance(begin, end) > _N)
 				throw std::out_of_range("Not enough space to add");
 			_numbers.insert(_numbers.end(), begin, end);
 		}
@@ -58,5 +64,7 @@ class Span
 		int shortestSpan() const;
 		int longestSpan() const;
 } ;
+
+std::ostream& operator<<(std::ostream& out, const Span& src);
 
 #endif
