@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:07:11 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/03 20:22:11 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/03 21:20:30 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <sstream> // pour iss
+#include <climits> // pour INT_MAX et INT_MIN
 
 class RPN
 {
