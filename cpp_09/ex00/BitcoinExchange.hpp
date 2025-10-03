@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 17:42:37 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/02 18:54:16 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/03 17:47:38 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <map>
 #include <string>
 #include <iostream>
+#include <fstream>
+#include <cstdlib>
 
 class Btc
 {
@@ -41,7 +43,9 @@ class Btc
 		// fonction annexe de parsing de la date et des valeur passe en argument
 		bool isValidValue(double value) const;
 		bool isValidDate(const std::string& date) const;
+		bool isValidExtent(const std::string& extention) const;
 		double getRateForDate(const std::string& date) const; // double pour affiner le calcul en 64 bits pas en 16 comme float
+		std::string trim(const std::string& str) const; // helper function to remove whitespace
 } ;
 
 #endif
