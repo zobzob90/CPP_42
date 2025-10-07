@@ -6,12 +6,13 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 15:10:02 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/19 15:23:05 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/06 13:25:38 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Base.hpp"
 
+// genere une classe random 
 Base* generate(void)
 {
 	static bool first_call = true;
@@ -33,8 +34,14 @@ Base* generate(void)
 }
 
 // identifie le type via un pointeur
+// dynamic_cast permet de tester le type reel en securite
 void	identify(Base* p)
 {
+	if (p == NULL)
+	{
+		std::cout << "NULL POINTER" << std::endl;
+		return ;
+	}
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
@@ -45,6 +52,7 @@ void	identify(Base* p)
 		std::cout << "Unknow" << std::endl;
 }
 
+// permet d'identifier via l'adresse - lance une execption si echec
 void	identify(Base& p)
 {
 	try

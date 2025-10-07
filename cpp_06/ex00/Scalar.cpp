@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 11:06:56 by eric              #+#    #+#             */
-/*   Updated: 2025/09/16 16:45:42 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/06 12:52:25 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,13 @@ Scalar::~Scalar(){}
 /*Boolean for detecting the type*/
 
 bool Scalar::isChar(const std::string& input)
-{
-	return (input.length() == 3 && input[0] == '\'' && input[2] == '\'');
+{	
+	// Accept both formats: 'c' (with quotes) and c (single char for convenience)
+	if (input.length() == 3 && input[0] == '\'' && input[2] == '\'')
+		return true;
+	if (input.length() == 1 && std::isprint(input[0]))
+		return true;
+	return false;
 }
 
 bool Scalar::isInt(const std::string& input)
@@ -143,7 +148,13 @@ bool Scalar::isDouble(const std::string& input)
 
 void Scalar::convertChar(const std::string& input)
 {
-	char c = input[1];
+	char c;
+	
+	// Handle both 'c' (with quotes) and c (single char)
+	if (input.length() == 3)
+		c = input[1];  // Extract from 'c'
+	else
+		c = input[0];  // Direct single char
 
 	std::cout << "Char : '" << c << "'" << std::endl;
 	std::cout << "Int : " << static_cast<int> (c) << std::endl;
@@ -153,7 +164,7 @@ void Scalar::convertChar(const std::string& input)
 
 void Scalar::convertInt(const std::string& input)
 {
-	// Additional safety check - this should never be reached if isInt() works correctly
+	// Additional safety check
 	if (!isInt(input))
 	{
 		std::cout << "Invalid Input, please try again" << std::endl;
@@ -267,7 +278,7 @@ void Scalar::convertDouble(const std::string& input)
 		}
 	}
 	//FOR CHAR CONVERSION
-	if (std::isnan(value) || std::isinf(value))
+	if (std::isnan(value) || std::isinf(value)) //Not an Number or Is Infinite
 		std::cout << "Char : Impossible" << std::endl;
 	else if (value < 0 || value > 127 || value != static_cast<int>(value))
 		std::cout << "Char : Impossible" << std::endl;
