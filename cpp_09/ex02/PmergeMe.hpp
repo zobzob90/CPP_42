@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:43 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/07 17:49:02 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:49:05 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Pmerge
 		template<typename T>
 		void	mergeSort(T& container)
 		{
-			if (container.size() <= 1)
+			if (container.size() <= 1) // deja trie
 				return;
 			
 			//1. Diviser le container en deux partie
@@ -39,13 +39,9 @@ class Pmerge
 		}
 
 		template<typename T>
-		void	binaryInsert(T& mainChain, typename T::value_type value)
-		{
-			typename T::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), value);
-			mainChain.insert(pos, value);
-		}
+		void	binaryInsert(T& mainChain, typename T::value_type value);
 
-		// std::vector<size_t>	generateJacobsthalSequence(size_t n) const;
+		std::vector<size_t>	generateJacobsthalSequence(size_t n) const;
 
 	public:
 		Pmerge() {}

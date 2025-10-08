@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:10:11 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/19 16:30:49 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/08 13:16:17 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <string>
 #include <iostream>
 
+// fonction generique swap qui marche avec un int, char ou autres, pas besoin d'une classe pour cet exo
 template <typename T>
 void	swap(T &a, T &b)
 {

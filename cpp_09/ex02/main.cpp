@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:38 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/07 17:12:36 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:45:27 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(int ac, char *av[])
 	std::set<int> seen;
 	for (int i = 1; i < ac; i++)
 	{
-		if (!isNumber(av[i]) || atoi(av[i]) < 0 || atoi(av[i]) > 100000)
+		if (!isNumber(av[i]) || atoi(av[i]) < 0 || atoi(av[i]) > 3000)
 		{
 			std::cerr << "Error: invalid argument : " << av[i] << std::endl;
 			return (1);
@@ -55,9 +55,6 @@ int main(int ac, char *av[])
 		v.push_back(atoi(av[i]));
 	}
 	Pmerge p;
-	p.binaryInsert(v , 8);
-	for (size_t i = 0; i < v.size(); ++i)
-		std::cout << v[i] << " ";
 	std::cout << std::endl;
 	return (0);
 }

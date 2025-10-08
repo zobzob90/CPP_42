@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:57:49 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/19 20:50:01 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/08 15:34:57 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 
 #include <iostream>
 #include <exception>
+#include <cstdlib>
+
+#include "Array.tpp"
 
 template <typename T>
 class Array
@@ -25,7 +28,7 @@ class Array
 	public:
 		Array(); // constructeur par defaut
 		Array(unsigned int n); // constructeur avec parametres;
-		Array(const Array& src); // constructeur de copie;
+		Array(const Array& src); // constructeur de copie pimper;
 		Array& operator=(const Array& src); // Operateur d'assignation
 		~Array(); // Destructeur
 		
@@ -35,7 +38,5 @@ class Array
 
 		unsigned int size() const;
 } ;
-
-#include "Array.tpp"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:57:54 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/09/19 20:52:06 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/08 13:43:38 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,20 +52,20 @@ Array<T>::~Array()
 	delete[] _elements;
 }
 
-template <typename T>
+template <typename T> // version pour objet non-constant 
 T& Array<T>::operator[](unsigned int index)
 {
 	if (index >= _size)
 		throw std::exception();
-	return (_elements[index]);
+	return (_elements[index]); // PEUT modifier l'element
 }
 
-template <typename T>
+template <typename T> // version pour objet const
 const T& Array<T>::operator[](unsigned int index) const
 {
 	if (index >= _size)
-		throw std::exception();
-	return (_elements[index]);
+		throw std::exception(); // evite le segfault
+	return (_elements[index]); // Lecture seuleument
 }
 
 template <typename T>
