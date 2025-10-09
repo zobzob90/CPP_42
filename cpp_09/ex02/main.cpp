@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:38 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/08 15:45:27 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:52:14 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool isNumber(const std::string& str)
 	}
 	return (true);
 }
-
+#include <bits/stdc++.h>
 
 int main(int ac, char *av[])
 {
@@ -38,11 +38,18 @@ int main(int ac, char *av[])
 		std::cout << "Error : Cannot accept 1 Arguments" << std::endl;
 		return (1);
 	}
-	std::vector<int> v;
-	std::set<int> seen;
+
+	if (ac - 1 > 3000)
+	{
+		std::cerr << "Error : Too many elements in your list !" << std::endl;
+		return (1);
+	}
+	std::vector<int>	vector;
+	std::deque<int>		deque;
+	std::set<int>		seen;
 	for (int i = 1; i < ac; i++)
 	{
-		if (!isNumber(av[i]) || atoi(av[i]) < 0 || atoi(av[i]) > 3000)
+		if (!isNumber(av[i]) || atoi(av[i]) < 0)
 		{
 			std::cerr << "Error: invalid argument : " << av[i] << std::endl;
 			return (1);
@@ -52,9 +59,43 @@ int main(int ac, char *av[])
 			std::cerr << "Error: duplicate number : " << av[i] << std::endl;
 			return (1);
 		}
-		v.push_back(atoi(av[i]));
+		vector.push_back(atoi(av[i]));
+		deque.push_back(atoi(av[i]));
 	}
 	Pmerge p;
+
+	std::cout << "Before : ";
+	for (size_t i = 0; i < vector.size(); ++i)
+		std::cout << vector[i] << " ";
 	std::cout << std::endl;
+
+	std::vector<int> cpy(vector);
+	// trie avec Vector;
+	p.resetComparisons();
+	clock_t start = clock();
+	p.sortVector(vector);
+	clock_t end = clock();
+	double vectorTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
+	size_t vectorComparisons = p.getComparisons();
+
+	// trie avec Deque
+	p.resetComparisons();
+	start = clock();
+	p.sortDeque(deque);
+	end = clock();
+	double dequeTime = static_cast<double>(end - start) / CLOCKS_PER_SEC * 1000000;
+	size_t dequeComparisons = p.getComparisons();
+
+	// Afficher les sequences apres trie
+	std::cout << "After : ";
+	for (size_t i = 0; i < vector.size(); ++i)
+		std::cout << vector[i] << " ";
+	std::cout << std::endl;
+	
+
+	// Afficher le temps
+	std::cout << "Time to process a range of " << vector.size() << " elements with std::vector : " << vectorTime << " us " << vectorComparisons << " comparisons" << std::endl;
+	std::cout << "Time to process a range of " << vector.size() << " elements with std::deque : " << dequeTime << " us " << dequeComparisons << " comparisons" << std::endl;
+
 	return (0);
 }

@@ -18,7 +18,8 @@ SOURCES		= 	main.cpp \
 OBJECTS		= $(SOURCES:%.cpp=$(OBJDIR)/%.o)
 
 # Header files
-HEADERS		=	PmergeMe.hpp
+HEADERS		=	PmergeMe.hpp \
+				PmergeMe.tpp 
 
 # Colors for pretty output
 GREEN		= \033[0;32m

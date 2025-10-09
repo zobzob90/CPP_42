@@ -6,22 +6,33 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 15:47:43 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/08 16:59:29 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:49:35 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PMERGEME_TPP
 #define PMERGEME_TPP
 
+#include "PmergeMe.hpp"
+
 template<typename T>
-void	binaryInsert(T& mainChain, typename T::value_type value)
+void Pmerge::binaryInsert(T& mainChain, typename T::value_type value)
 {
-	typename T::iterator pos = std::lower_bound(mainChain.begin(), mainChain.end(), value);
-	mainChain.insert(pos, value);
+    // Compter les comparaisons dans la recherche binaire
+    size_t left = 0, right = mainChain.size();
+    while (left < right) {
+        comparisons++; // ✅ Chaque comparaison binaire
+        size_t mid = left + (right - left) / 2;
+        if (mainChain[mid] < value)
+            left = mid + 1;
+        else
+            right = mid;
+    }
+    mainChain.insert(mainChain.begin() + left, value);
 }
 
 template<typename T>
-void	mergeSort(T& container)
+void	Pmerge::mergeSort(T& container)
 {
 	if (container.size() <= 1) // deja trie
 		return;
@@ -29,7 +40,7 @@ void	mergeSort(T& container)
 	//1. Diviser le container en deux partie
 
 	// creer un vector avec std::pair qui comprend deux valeurs qu'on appelle ensuite pairs
-	std::vector<std::pair<typename T::value_type, typename T::value_type>> pairs;
+	std::vector<std::pair<typename T::value_type, typename T::value_type> > pairs;
 	bool hasOdd = container.size() % 2 == 1;
 	typename T::value_type oddElement;
 
@@ -45,16 +56,37 @@ void	mergeSort(T& container)
 	// Ici je cree les pairs pour le trie gagnant / perdant 
 	for (size_t i = 0; i < pairCount; i+= 2)
 	{
+		comparisons++;
 		if (container[i] > container[i + 1])
 			pairs.push_back(std::make_pair(container[i], container[i + 1]));
 		else
 			pairs.push_back(std::make_pair(container[i + 1], container[i]));
 	}
 	
-	//2. Appeler mergeSort sur chaque sous-partie
+	//2. Appeler mergeSort sur les gagnants
+	T winners;
+	
+	for(size_t i = 0; i < pairs.size(); ++i)
+		winners.push_back(pairs[i].first);
+	mergeSort(winners); //  appel recursif de merge Sort sur les gagnants
 	
 	//3. Fusionner les deux sous-parties tries
-		
+	container.clear();
+	for (size_t i = 0; i < winners.size(); ++i)
+		container.push_back(winners[i]);
+	
+	std::vector<typename T::value_type> losers;
+	for (size_t i = 0; i < pairs.size(); ++i)
+		losers.push_back(pairs[i].second);
+	
+	//4. Appel de JacobSthal pour avoir l'ordre d'insertion optimal
+	std::vector<size_t> jacob = generateJacobsthalSequence(losers.size());
+	for (size_t i = 0; i < jacob.size(); ++i)
+		binaryInsert(container, losers[jacob[i]]);
+	
+	//5. Si la liste est une liste impair j'utilise la dichotomie pour inserer le dernier dans le bon ordre
+	if (hasOdd)
+		binaryInsert(container, oddElement);
 }
 
 #endif
