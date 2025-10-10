@@ -6,7 +6,7 @@
 #    By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/19 16:40:00 by ertrigna          #+#    #+#              #
-#    Updated: 2025/10/08 15:07:13 by ertrigna         ###   ########.fr        #
+#    Updated: 2025/10/10 11:39:05 by ertrigna         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,9 +18,9 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 # Directories
-SRCDIR		= main.cpp
+SRCDIR		= .
 OBJDIR		= obj
-INCDIR		= whatever.hpp
+INCDIR		= .
 
 # Source files
 SOURCES		= main.cpp

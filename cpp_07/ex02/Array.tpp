@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:57:54 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/08 13:43:38 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:56:08 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ Array<T> &Array<T>::operator=(const Array& src)
 		_size = src._size;
 		if (_size > 0)
 		{
-			_elements = new T[_size];
+			_elements = new T[_size]; // new alloc
 			for (unsigned int i = 0; i < _size; i++)
-				_elements[i] = src._elements[i];
+				_elements[i] = src._elements[i]; // deep copy
 		}
 		else
-			_elements = NULL;
+			_elements = NULL; // si la taille est a 0
 	}
 	return (*this);
 }

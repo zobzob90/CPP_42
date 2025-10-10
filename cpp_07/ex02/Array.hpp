@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 17:57:49 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/08 15:34:57 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:31:30 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <exception>
 #include <cstdlib>
 
-#include "Array.tpp"
+
 
 template <typename T>
 class Array
@@ -38,5 +38,7 @@ class Array
 
 		unsigned int size() const;
 } ;
+
+#include "Array.tpp"
 
 #endif
