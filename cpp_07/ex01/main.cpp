@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/19 16:46:10 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/10 16:03:29 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:09:39 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ void	isEvenOrOdd(T& x)
 		std::cout << x << " is even" << std::endl;
 	else if (x % 3 == 0)
 		 std::cout << x << " is odd" << std::endl;
+}
+
+template<typename T>
+T	capsLock(T& x)
+{
+	if (std::isalpha(x))
+		x = std::toupper(x);
+	std::cout << x;
+	return (x);
 }
 
 int main(void)
@@ -46,6 +55,11 @@ int main(void)
 	std::cout << "=== TESTING ODD OR EVEN ===" << std::endl;
 	iter(evenArr, 1, isEvenOrOdd<int>);
 	iter(oddArr, 1, isEvenOrOdd<int>);
+	iter(charArray, 6, isEvenOrOdd<char>);
+
+	std::cout << "TESTING WITH A RETURN TYPE : ";
+	iter(charArray, 6, capsLock<char>);
+	std::cout << std::endl;
 	
 	return (0);
 }
