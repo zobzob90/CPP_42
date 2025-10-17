@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:38 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/09 15:52:14 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/17 11:24:20 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,67 @@ bool isNumber(const std::string& str)
 	}
 	return (true);
 }
-#include <bits/stdc++.h>
+
+void	printPairs(const std::vector<int>& container)
+{
+    if (container.size() <= 1)
+        return;
+        
+    std::cout << "\n=== PAIRS (winner, loser) ===" << std::endl;
+    
+    bool hasOdd = container.size() % 2 == 1;
+    size_t pairCount = hasOdd ? container.size() - 1 : container.size();
+    
+    for (size_t i = 0; i < pairCount; i += 2)
+    {
+        int winner, loser;
+        if (container[i] > container[i + 1])
+        {
+            winner = container[i];
+            loser = container[i + 1];
+        }
+        else
+        {
+            winner = container[i + 1];
+            loser = container[i];
+        }
+        
+        std::cout << "pairs[" << i/2 << "] = (" << winner << ", " << loser << ")";
+        std::cout << "   ← winner=" << winner << ", loser=" << loser << std::endl;
+    }
+    
+    if (hasOdd)
+        std::cout << "Odd element: " << container.back() << std::endl;
+}
+
+void	printLosers(const std::vector<int>& container)
+{
+	if (container.size() <= 1)
+		return;
+        
+	std::cout << "\n=== LOSERS ===" << std::endl;
+	std::cout << "[ ";
+    
+	bool hasOdd = container.size() % 2 == 1;
+	size_t pairCount = hasOdd ? container.size() - 1 : container.size();
+    
+	int loserIdx = 0;
+	for (size_t i = 0; i < pairCount; i += 2)
+	{
+		int loser;
+		if (container[i] > container[i + 1])
+            loser = container[i + 1];
+        else
+            loser = container[i];
+        
+        std::cout << "losers[" << loserIdx << "]=" << loser;
+        if (i + 2 < pairCount)
+            std::cout << ", ";
+        loserIdx++;
+    }
+    
+    std::cout << " ]" << std::endl;
+}
 
 int main(int ac, char *av[])
 {
@@ -68,8 +128,18 @@ int main(int ac, char *av[])
 	for (size_t i = 0; i < vector.size(); ++i)
 		std::cout << vector[i] << " ";
 	std::cout << std::endl;
+	
+	printPairs(vector);
+	printLosers(vector);
 
-	std::vector<int> cpy(vector);
+	std::cout << std::endl;
+	
+	// Afficher la séquence de Jacobsthal
+	p.printJacobsthalSequence(vector.size());
+	p.printJacobsthalWithValues(vector);
+
+	std::cout << std::endl;
+
 	// trie avec Vector;
 	p.resetComparisons();
 	clock_t start = clock();
@@ -92,10 +162,11 @@ int main(int ac, char *av[])
 		std::cout << vector[i] << " ";
 	std::cout << std::endl;
 	
-
+	std::cout << std::endl;
+	
 	// Afficher le temps
 	std::cout << "Time to process a range of " << vector.size() << " elements with std::vector : " << vectorTime << " us " << vectorComparisons << " comparisons" << std::endl;
 	std::cout << "Time to process a range of " << vector.size() << " elements with std::deque : " << dequeTime << " us " << dequeComparisons << " comparisons" << std::endl;
 
-	return (0);
+	// return (0);
 }

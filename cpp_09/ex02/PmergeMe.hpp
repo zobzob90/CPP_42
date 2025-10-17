@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:43 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/09 16:36:47 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/17 11:14:42 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
 #include <string>
 #include <iostream>
 
-
-
 class Pmerge
 {
 	private:
@@ -33,6 +31,9 @@ class Pmerge
 		
 		template<typename T>
 		void	binaryInsert(T& mainChain, typename T::value_type value);
+		
+		template<typename T>
+		void	binaryInsertMaxPos(T& mainChain, typename T::value_type value, size_t maxPos);
 
 		std::vector<size_t>	generateJacobsthalSequence(size_t n) const;
 
@@ -54,6 +55,8 @@ class Pmerge
 
 		void	sortVector(std::vector<int>& Vector);
 		void	sortDeque(std::deque<int>& Deque);
+		void	printJacobsthalSequence(size_t n) const;
+		void	printJacobsthalWithValues(const std::vector<int>& container) const;
 } ;
 
 #include "PmergeMe.tpp"

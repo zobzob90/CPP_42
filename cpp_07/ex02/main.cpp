@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/10 13:16:37 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/13 13:43:24 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/13 14:33:53 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ int main(int, char**)
 	std::cout << "Test avec un constructeur par default a 5 ->" << " "; // test valeur par defaut
 	for(unsigned int i = 0; i < defInit.size(); i++)
 		std::cout << defInit[i] << " ";
+	std::cout << std::endl;
+	std::cout << defInit.size() << std::endl;
 	std::cout << std::endl;
 	
 	int	*a = new int();

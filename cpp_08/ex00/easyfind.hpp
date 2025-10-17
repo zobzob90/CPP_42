@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/01 12:58:19 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/01 14:05:39 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/15 16:48:13 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <algorithm> // pour utiliser find
  
 template <typename T>
-typename T::const_iterator	easyfind(const T& container, int value)
+typename T::const_iterator	easyFind(const T& container, int value)
 {
 	typename T::const_iterator iterator;
 

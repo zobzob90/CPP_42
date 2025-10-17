@@ -6,7 +6,7 @@
 /*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 14:13:08 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/02 16:49:13 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/16 15:35:21 by ertrigna         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,26 @@ void mutantTest()
 		++it;
 	}
 	std::stack<int> s(mstack);
+}
+
+void reverseTest()
+{
+	MutantStack<int> mstack;
+
+	mstack.push(5);
+	mstack.push(10);
+	mstack.push(3);
+	mstack.push(737);
+	mstack.push(0);
+
+	std::cout << "Iteration normale (begin->end) : " << std::endl;
+	for (MutantStack<int>::iterator it = mstack.begin(); it != mstack.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+	std::cout << "Iteration inverse (end->begin) : " << std::endl;
+	for (MutantStack<int>::reverse_iterator it = mstack.rbegin(); it != mstack.rend(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
 }
 
 void listTest()
@@ -84,6 +104,9 @@ int main(void)
 	std::cout << std::endl;
 	std::cout << "List Test" << std::endl;
 	listTest();
+	std::cout << std::endl;
+	std::cout << "Pour le fun" << std::endl;
+	reverseTest();
 	
 	return (0);
 }
