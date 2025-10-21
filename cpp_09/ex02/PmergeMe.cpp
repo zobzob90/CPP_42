@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/07 12:58:40 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/17 11:23:55 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/21 22:42:21 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ std::vector<size_t> Pmerge::generateJacobsthalSequence(size_t n) const
 		return (jacob);
 	
 	// Générer les nombres de Jacobsthal: 0, 1, 1, 3, 5, 11, 21, 43, 85...
-	std::vector<size_t> jacobNum;
+	std::vector<size_t> jacobNum; // creer un vecteur pour stocker les nombres
 	jacobNum.push_back(0); // J(0)
 	jacobNum.push_back(1); // J(1)
 
-	while (jacobNum.back() < n * 2) 
+	while (jacobNum.back() < n * 2) // on genere les sequences 
 	{
 		size_t next = jacobNum[jacobNum.size() - 1] + 2 * jacobNum[jacobNum.size() - 2];
 		jacobNum.push_back(next);
 	}
 	
-	std::vector<bool> used(n, false);
+	std::vector<bool> used(n, false); // pour savoir quels incides sont deja ajoutee a la sequence
 
 	// Insérer le premier élément (index 0)
 	jacob.push_back(0);
 	used[0] = true;
 	
-	// Insérer l'élément à l'index 1 (J₁)
-	if (n > 1)
+	// Insérer l'élément à l'index 1
+	if (n > 1) 
 	{
 		jacob.push_back(1);
 		used[1] = true;
@@ -70,7 +70,7 @@ std::vector<size_t> Pmerge::generateJacobsthalSequence(size_t n) const
 			jacob.push_back(i);
 	}
 	
-	return (jacob);
+	return (jacob); //  retourne l'ordre d'insertion optimal
 }
 
 void	Pmerge::sortVector(std::vector<int>& vector)

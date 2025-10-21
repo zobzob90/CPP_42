@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ertrigna <ertrigna@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eric <eric@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:07:08 by ertrigna          #+#    #+#             */
-/*   Updated: 2025/10/03 21:20:28 by ertrigna         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:00:02 by eric             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ int	RPN::calculate(const std::string& args)
 
 	while (iss >> token) // tant que iss est extrait de token on lance la boucle
 	{
-		if (token.size() == 1 && isOp(token[0]))
+		if (token.size() == 1 && isOp(token[0])) // si le token est un operateur
 		{
 			if(_stack.size() < 2)
 				throw std::runtime_error("Error: Not enough operator !");
-			int b = _stack.top(); _stack.pop();
-			int a = _stack.top(); _stack.pop();
-			_stack.push(applyOp(token[0], a, b));	
+			int b = _stack.top(); _stack.pop(); // je depile les deux derniers
+			int a = _stack.top(); _stack.pop(); // pareil
+			_stack.push(applyOp(token[0], a, b)); // j'applique l'operation	
 		}
 		else
 		{
@@ -68,13 +68,13 @@ int	RPN::calculate(const std::string& args)
 				if (!isdigit(token[i]) && !(i == 0 && token[i] == '-'))
 					throw std::runtime_error("Error : invalid arguments !");
 			}
-			int value = atoi(token.c_str());
+			int value = atoi(token.c_str()); // convertir l'ascii en int 
 			if (value >= 10)
 				throw std::runtime_error("Error : Numbers must be less than 10");
-			_stack.push(value);
+			_stack.push(value); // j'empile la valeur 
 		}
 	}
-	if (_stack.size() != 1)
+	if (_stack.size() != 1) // il ne doit rester que la valeur
 		throw std::runtime_error("Error : Invalid expression !");
 	return _stack.top();
 }
